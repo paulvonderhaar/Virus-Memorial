@@ -8,7 +8,7 @@ MarkupSafe==1.0
 python-dateutil==2.7.3
 pytz==2018.5
 six==1.11.0
-Werkzeug==0.14.1
+Werkzeug==0.15.3
 Gunicorn==19.9.0
 Boto3==1.12.31
 psycopg2==2.8.4
