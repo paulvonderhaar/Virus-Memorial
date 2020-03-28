@@ -31,7 +31,7 @@ def storage():
 def upload():
     if request.method == "POST":
         f = request.files['file']
-        f.save(os.path.join(UPLOAD_FOLDER, f.filename))
+        f.save(os.path.join(upload_file, f.filename))
         upload_file(f"uploads/{f.filename}", BUCKET)
 
         return redirect("/storage")
