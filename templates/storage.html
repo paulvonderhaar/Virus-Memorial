@@ -8,12 +8,13 @@
   </head>
   <body>
     <div class="content">
-        <h3>Flask Drive: S3 Flask Demo</h3>
-        <p>Welcome to this AWS S3 Demo</p>
+        <h3>S3 demo</h3>
+        <p>The file you upload here will be uploaded to S3</p>
         <div>
           <h3>Upload your file here:</h3>
           <form method="POST" action="/upload" enctype=multipart/form-data>
             <input type=file name=file>
+            <input type=text name=Name>
             <input type=submit value=Upload>
           </form>
         </div>

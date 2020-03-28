@@ -3,14 +3,14 @@ from flask import Flask, render_template, request, redirect, send_file
 import boto3
 app = Flask(__name__)
 UPLOAD_FOLDER = "uploads"
-def upload_file(file_name):
+def upload_file(file_name, file_id):
     access_key='AKIAQFSEYOHOTL5OCAYD'
     secret_key='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'
     s3 = boto3.client('s3',aws_access_key_id=access_key, aws_secret_access_key=secret_key)  
 
     try:
         file_name=file_name
-        s3.upload_file(file_name,'memorialphotos','0000001.jpg')
+        s3.upload_file(file_name,'memorialphotos', file_id+".jpg")
         return True
     except FileNotFoundError:
         print("The file was not found")
@@ -32,8 +32,29 @@ def storage():
 def upload():
     if request.method == "POST":
         f = request.files['file']
+        text = request.form['text']
+        connection= psycopg2.connect(
+            host = 'memorial.ccrcqb4iv5ys.us-east-1.rds.amazonaws.com',
+            port = 5432,
+            user = 'postgres',
+            password='postgres',
+            database='memorial'
+        )
+        cursor=connection.cursor()
+        cursor.execute("""INSERT INTO memorial(name)
+        VALUES(%s)
+        """%text)
+
+        connection.commit()
+
+        currentId=cursor.execute("""select max(id) from memorial""")
+        connection.commit()
+
+
+
         f.save(os.path.join(UPLOAD_FOLDER, f.filename))
-        upload_file(f"uploads/{f.filename}")
+        upload_file(f"uploads/{f.filename}",currentId)
+
 
         return redirect("/storage")
 
