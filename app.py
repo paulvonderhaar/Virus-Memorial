@@ -2,9 +2,7 @@ import os
 from flask import Flask, render_template, request, redirect, send_file
 import boto3
 app = Flask(__name__)
-UPLOAD_FOLDER = "uploads"
-BUCKET = "memorialphotos"
-def upload_file(file_name)
+def upload_file(file_name):
     access_key='AKIAQFSEYOHOTL5OCAYD'
     secret_key='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'
     s3 = boto3.client('s3',aws_access_key_id=access_key, aws_secret_access_key=secret_key)  
@@ -19,9 +17,6 @@ def upload_file(file_name)
     except NoCredentialsError:
         print("Credentials not available")
         return False
-
-
-
 
 @app.route('/')
 def entry_point():
