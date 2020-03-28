@@ -1,6 +1,8 @@
 import os
 from flask import Flask, render_template, request, redirect, send_file
 import boto3
+from botocore.exceptions import NoCredentialsError
+from botocore.exceptions import NoCredentialsError
 import  psycopg2
 
 app = Flask(__name__)
@@ -14,6 +16,12 @@ def upload_file(file_name, file_id):
         file_name=file_name
         s3.upload_file(file_name,'memorialphotos', file_id+".jpg")
         return True
+    except FileNotFoundError:
+        print("The file was not found")
+        return False
+    except NoCredentialsError:
+        print("Credentials not available")
+        return False
 
 
 @app.route('/')
