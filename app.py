@@ -18,13 +18,13 @@ def upload_file(file_name):
         print("Credentials not available")
         return False
 
+
 @app.route('/')
 def entry_point():
     return 'Hello World!'
 
 @app.route("/storage")
 def storage():
-    contents = list_files("flaskdrive")
     return render_template('storage.html', contents=contents)
 
 @app.route("/upload", methods=['POST'])
