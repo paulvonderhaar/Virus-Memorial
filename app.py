@@ -31,17 +31,9 @@ def storage():
 def upload():
     if request.method == "POST":
         f = request.files['file']
-        f.save(os.path.join(upload_file, f.filename))
-        upload_file(f"uploads/{f.filename}", BUCKET)
+        upload_file(f"uploads/{f.filename}")
 
         return redirect("/storage")
-
-@app.route("/upload/<filename>", methods=['GET'])
-def download(filename):
-    if request.method == 'GET':
-        output = upload_file(filename)
-
-        return send_file(output, as_attachment=True)
 
 if __name__ == '__main__':
     app.run(debug=True)
