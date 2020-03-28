@@ -59,7 +59,7 @@ def entry_point():
 
 @app.route('/<num>')
 def display_pic(num):
-    return(num)
+    return render_template('picture.html',number=num)
 
 
 
