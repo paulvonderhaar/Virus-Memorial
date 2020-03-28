@@ -49,7 +49,8 @@ def upload():
 
         connection.commit()
 
-        currentId=cursor.execute("""select max(id) from memorial""")
+        a=cursor.execute("""select max(id) from memorial""")
+        currentId=a.fetchall()
         connection.commit()
 
 
