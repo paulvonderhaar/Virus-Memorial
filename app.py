@@ -34,7 +34,7 @@ def storage():
 def upload():
     if request.method == "POST":
         f = request.files['file']
-        text = request.form['text']
+        text = request.form['Name']
         connection= psycopg2.connect(
             host = 'memorial.ccrcqb4iv5ys.us-east-1.rds.amazonaws.com',
             port = 5432,
