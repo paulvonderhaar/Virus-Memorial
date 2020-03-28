@@ -40,7 +40,7 @@ def upload_file(file_name, file_id):
 
 @app.route('/')
 def entry_point():
-    return render_template('index.html')
+    return (render_template('index.html'))
 
 @app.route('/list')
 def memorial_list():
