@@ -14,12 +14,6 @@ def upload_file(file_name, file_id):
         file_name=file_name
         s3.upload_file(file_name,'memorialphotos', file_id+".jpg")
         return True
-    except FileNotFoundError:
-        print("The file was not found")
-        return False
-    except NoCredentialsError:
-        print("Credentials not available")
-        return False
 
 
 @app.route('/')
