@@ -45,7 +45,7 @@ def entry_point():
 @app.route('/list')
 def memorial_list():
     content=list_names()
-    return(render_template('memorial_list.html'),contents=content)
+    return(render_template('memorial_list.html',contents=content)
 
 @app.route("/storage")
 def storage():
