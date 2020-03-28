@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template, request, redirect, send_file
 import boto3
 app = Flask(__name__)
+UPLOAD_FOLDER = "uploads"
 def upload_file(file_name):
     access_key='AKIAQFSEYOHOTL5OCAYD'
     secret_key='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'
