@@ -18,9 +18,6 @@ def list_names():
     connection.commit()
     return(content)
 
-
-
-
 def upload_file(file_name, file_id):
     access_key='AKIAQFSEYOHOTL5OCAYD'
     secret_key='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'
@@ -40,7 +37,7 @@ def upload_file(file_name, file_id):
 
 @app.route('/')
 def entry_point():
-    return (render_template('index.html'))
+    return ('hello world')
 
 @app.route('/list')
 def memorial_list():
