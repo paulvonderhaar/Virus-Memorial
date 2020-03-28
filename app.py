@@ -31,7 +31,7 @@ def storage():
 def upload():
     if request.method == "POST":
         f = request.files['file']
-        upload_file(f"uploads/{f.filename}")
+        upload_file(f.filename)
 
         return redirect("/storage")
 
