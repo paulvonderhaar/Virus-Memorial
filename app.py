@@ -1,7 +1,6 @@
 import os
 from flask import Flask, render_template, request, redirect, send_file
-from s3_demo import list_files, download_file, upload_file
-
+import boto3
 app = Flask(__name__)
 UPLOAD_FOLDER = "uploads"
 BUCKET = "memorialphotos"
