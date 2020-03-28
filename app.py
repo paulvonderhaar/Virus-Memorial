@@ -57,6 +57,13 @@ def upload_file(file_name, file_id):
 def entry_point():
     return 'Hello World!'
 
+@app.route('/<num>')
+def display_pic(num):
+    return(num)
+
+
+
+
 @app.route('/list')
 def memorial_list():
     content=list_names()
