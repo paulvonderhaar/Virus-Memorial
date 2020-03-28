@@ -8,6 +8,12 @@ import  psycopg2
 app = Flask(__name__)
 UPLOAD_FOLDER = "uploads"
 
+class individual():
+    def __init__(self,number,name):
+        self.num=number
+        self.name=name
+
+
 def list_names():
     connection= psycopg2.connect(
     host = 'memorial.ccrcqb4iv5ys.us-east-1.rds.amazonaws.com',
@@ -22,7 +28,8 @@ def list_names():
     a=cursor.execute("Select * from memorial")
     b=cursor.fetchall()
     for i in range(len(b)): 
-        content.append(b[i])
+        temp=individual(b[i][0],b[i][1])
+        content.append(temp)
     connection.commit()
     return(content)
 
