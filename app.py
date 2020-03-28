@@ -14,7 +14,7 @@ def upload_file(file_name, file_id):
 
     try:
         file_name=file_name
-        s3.upload_file(file_name,'memorialphotos', file_id+".jpg")
+        s3.upload_file(file_name,'memorialphotos', str(file_id)+".jpg")
         return True
     except FileNotFoundError:
         print("The file was not found")
