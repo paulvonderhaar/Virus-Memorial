@@ -43,7 +43,7 @@ def upload():
             database='memorial'
         )
         cursor=connection.cursor()
-        cursor.execute("""INSERT INTO memorial(name) VALUES(2,"test123")""")
+        cursor.execute("""INSERT INTO memorial(name) VALUES("test123")""")
 
         connection.commit()
 
