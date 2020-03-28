@@ -7,6 +7,20 @@ import  psycopg2
 
 app = Flask(__name__)
 UPLOAD_FOLDER = "uploads"
+
+def list_names():
+    cursor=connection.cursor()
+    content=[]
+    a=cursor.execute("Select * from memorial")
+    b=cursor.fetchall()
+    for i in range(len(b)): 
+        content.append(b[i])
+    connection.commit()
+    return(content)
+
+
+
+
 def upload_file(file_name, file_id):
     access_key='AKIAQFSEYOHOTL5OCAYD'
     secret_key='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'
@@ -27,6 +41,11 @@ def upload_file(file_name, file_id):
 @app.route('/')
 def entry_point():
     return render_template('index.html')
+
+@app.route('/list')
+def memorial_list():
+    content=list_names()
+    return(render_template('memorial_list.html'),contents=content)
 
 @app.route("/storage")
 def storage():
