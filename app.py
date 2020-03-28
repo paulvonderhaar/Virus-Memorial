@@ -4,7 +4,25 @@ from s3_demo import list_files, download_file, upload_file
 
 app = Flask(__name__)
 UPLOAD_FOLDER = "uploads"
-BUCKET = "flaskdrive"
+BUCKET = "memorialphotos"
+def upload_file(file_name)
+    access_key='AKIAQFSEYOHOTL5OCAYD'
+    secret_key='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'
+    s3 = boto3.client('s3',aws_access_key_id=access_key, aws_secret_access_key=secret_key)  
+
+    try:
+        file_name=file_name
+        s3.upload_file(file_name,'memorialphotos','0000001.jpg')
+        return True
+    except FileNotFoundError:
+        print("The file was not found")
+        return False
+    except NoCredentialsError:
+        print("Credentials not available")
+        return False
+
+
+
 
 @app.route('/')
 def entry_point():
@@ -24,10 +42,10 @@ def upload():
 
         return redirect("/storage")
 
-@app.route("/download/<filename>", methods=['GET'])
+@app.route("/upload/<filename>", methods=['GET'])
 def download(filename):
     if request.method == 'GET':
-        output = download_file(filename, BUCKET)
+        output = upload_file(filename)
 
         return send_file(output, as_attachment=True)
 
