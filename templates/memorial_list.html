@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>FlaskDrive</title>
+  </head>
+  <body>
+    <div class="content">
+        <h3>Flask Drive: S3 Flask Demo</h3>
+        <p>Welcome to this AWS S3 Demo</p>
+        </div>
+        <div>
+          <h3>This is your list of Names:</h3>
+          <ul>
+            {% for item in contents %}
+              <li>
+                <a href="/picture/<id>"> {{ item }} </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+    </div>
+  </body>
+</html>
