@@ -25,7 +25,7 @@ def entry_point():
 
 @app.route("/storage")
 def storage():
-    return render_template('storage.html', contents=contents)
+    return render_template('storage.html')
 
 @app.route("/upload", methods=['POST'])
 def upload():
