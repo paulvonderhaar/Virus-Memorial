@@ -45,7 +45,7 @@ def upload():
             database='memorial'
         )
         cursor=connection.cursor()
-        cursor.execute("INSERT INTO memorial(name) VALUES ('test123')")
+        cursor.execute("INSERT INTO memorial(name) VALUES (%s)",text)
 
         connection.commit()
 
@@ -56,7 +56,7 @@ def upload():
 
 
         f.save(os.path.join(UPLOAD_FOLDER, f.filename))
-        upload_file(f"uploads/{f.filename}",currentId)
+        upload_file(f"uploads/{f.filename}",currentId[0][0])
 
 
         return redirect("/storage")
