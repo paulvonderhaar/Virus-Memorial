@@ -9,6 +9,14 @@ app = Flask(__name__)
 UPLOAD_FOLDER = "uploads"
 
 def list_names():
+    connection= psycopg2.connect(
+    host = 'memorial.ccrcqb4iv5ys.us-east-1.rds.amazonaws.com',
+    port = 5432,
+    user = 'postgres',
+    password='postgres',
+    database='memorial'
+    )
+
     cursor=connection.cursor()
     content=[]
     a=cursor.execute("Select * from memorial")
