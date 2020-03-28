@@ -1,6 +1,8 @@
 import os
 from flask import Flask, render_template, request, redirect, send_file
 import boto3
+import  psycopg2
+
 app = Flask(__name__)
 UPLOAD_FOLDER = "uploads"
 def upload_file(file_name, file_id):
