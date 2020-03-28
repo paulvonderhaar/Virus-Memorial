@@ -55,7 +55,7 @@ def upload_file(file_name, file_id):
 
 @app.route('/')
 def entry_point():
-    return 'Hello World!'
+    return render_template('index.html')
 
 @app.route('/<num>')
 def display_pic(num):
