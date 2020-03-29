@@ -64,7 +64,7 @@ def display_pic(num):
     person=list_names()
     for item in person:
         if(str(item.num)==str(num)):
-            return render_template('picture.html',person=i)
+            return render_template('picture.html',person=item)
 
 
 
