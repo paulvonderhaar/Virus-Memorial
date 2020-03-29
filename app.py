@@ -78,9 +78,9 @@ def memorial_list():
 def storage():
     return render_template('storage.html')
 
-@app.route("/feelings")
-def feelings():
-    return render_template("feelings.html")
+@app.route("/stages")
+def stages():
+    return render_template("stages.html")
 
 @app.route("/upload", methods=['POST'])
 def upload():
