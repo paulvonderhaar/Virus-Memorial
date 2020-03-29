@@ -35,7 +35,6 @@ def list_names():
 
 
 def list_name():
-    def list_names():
     connection= psycopg2.connect(
     host = 'memorial.ccrcqb4iv5ys.us-east-1.rds.amazonaws.com',
     port = 5432,
