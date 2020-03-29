@@ -63,7 +63,7 @@ def entry_point():
 def display_pic(num):
     person=list_names()
     for item in person:
-        if(i.num==num):
+        if(item.num==num):
             return render_template('picture.html',person=i)
 
 
