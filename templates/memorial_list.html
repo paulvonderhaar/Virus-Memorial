@@ -1,24 +1,20 @@
 <html>
   <head>
-    <title>FlaskDrive</title>
+    <title>The COVID-19 Memorial and Grief Resources</title>
+    <link rel="stylesheet" href="/dist/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Nunito+Sans&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div class="content">
-        <h3>Flask Drive: S3 Flask Demo</h3>
-        <p>Welcome to this AWS S3 Demo</p>
-        </div>
         <div>
-          <h3>This is your list of Names:</h3>
-          <ul>
+          <h3 class="im">In Memoriam</h3>
+          <ul class="im">
             {% for item in contents %}
-              <li>
+              <li id="/person{{item.num}}">
                 <a href="/{{item.num}}"> {{ item.name }} </a>
               </li>
             {% endfor %}
-            <a href="/storage"> submit </a>
-            <a href="/stages"> I need help with the new normal </a>
-
-          </ul>
+            <a href="/storage" class="button"> submit </a>
+            <a href="/stages" class="button"> I need help with the new normal </a>          </ul>
         </div>
     </div>
   </body>
