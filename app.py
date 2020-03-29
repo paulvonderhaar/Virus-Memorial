@@ -78,6 +78,10 @@ def memorial_list():
 def storage():
     return render_template('storage.html')
 
+@app.route("/feelings")
+def feelings():
+    return render_template("feelings.html")
+
 @app.route("/upload", methods=['POST'])
 def upload():
     if request.method == "POST":
