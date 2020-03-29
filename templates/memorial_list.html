@@ -11,10 +11,11 @@
 
   </head>
   <body>
-        <div>
+        <div class="container">
           <h3 class="im">In Memoriam</h3>
           <ul class="im">
-          <div class="column-left">
+          <div class="row">
+            <div class="four columns">
 
           {% for item in contents[0:10] %}
                    <li>
@@ -22,7 +23,7 @@
                    </li>
 ​           {% endfor %}
               </div>
-           <div class="column-right">
+            <div class="four columns">
 
             {% for item in contents[11:20] %}
                 <li>
@@ -30,13 +31,14 @@
                 </li>
             {% endfor %}
 ​            </div>
-            <div class="column-center">
+              <div class="four columns">
 
             {% for item in contents[21:30] %}
                 <li>
                   <a href="/{{item.num}}"> {{ item.name }} </a>
                 </li>
             {% endfor %}
+            </div>
           </div>
 
                </ul>
