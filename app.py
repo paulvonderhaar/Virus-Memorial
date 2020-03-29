@@ -62,7 +62,7 @@ def entry_point():
 @app.route('/<num>')
 def display_pic(num):
     person=list_names()
-    for item in person():
+    for item in person:
         if(i.num==num):
             return render_template('picture.html',person=i)
 
