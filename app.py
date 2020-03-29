@@ -43,14 +43,14 @@ def list_name(num):
     database='memorial'
     )
 
-    cursor=connection.cursor(thisnum)
+    cursor=connection.cursor()
     content=[]
     a=cursor.execute("Select * from memorial")
     b=cursor.fetchall()
     
     for i in range(len(b)): 
         temp=individual(b[i][0],b[i][1])
-        if(temp.num==thisnum):
+        if(temp.num==num):
             value=temp
     connection.commit()
     return(value)
