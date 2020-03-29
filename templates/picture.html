@@ -1,6 +1,7 @@
 
-console.log(num)
+{% for item in person %}
 
 
-<img src=" https://memorialphotos.s3.amazonaws.com/num.jpg "></img>
+<img src=" https://memorialphotos.s3.amazonaws.com/{{item.num}}.jpg "></img>
 
+{% endfor %}

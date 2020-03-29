@@ -34,6 +34,28 @@ def list_names():
     return(content)
 
 
+def list_name():
+    def list_names():
+    connection= psycopg2.connect(
+    host = 'memorial.ccrcqb4iv5ys.us-east-1.rds.amazonaws.com',
+    port = 5432,
+    user = 'postgres',
+    password='postgres',
+    database='memorial'
+    )
+
+    cursor=connection.cursor(thisnum)
+    content=[]
+    a=cursor.execute("Select * from memorial")
+    b=cursor.fetchall()
+    
+    for i in range(len(b)): 
+        temp=individual(b[i][0],b[i][1])
+        if(temp.num==thisnum):
+            value=temp
+    connection.commit()
+    return(value)
+
 
 
 def upload_file(file_name, file_id):
@@ -61,7 +83,8 @@ def entry_point():
 
 @app.route('/<num>')
 def display_pic(num):
-    return render_template('picture.html',number=num)
+    person=list_name(num)
+    return render_template('picture.html',person=person)
 
 
 
