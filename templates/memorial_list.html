@@ -15,11 +15,27 @@
           <h3 class="im">In Memoriam</h3>
           <ul class="im">
             {% for item in contents %}
-              <li id="/person{{item.num}}">
-                <a href="/{{item.num}}"> {{ item.name }} </a>
-              </li>
-            {% endfor %}
-            <a href="/storage" class="button"> submit </a>
+            {% for item in contents %}
+               {% if loop.index <=10 %}
+               <div class="column-left">
+                   <li>
+                     <a href="/{{item.num}}"> {{ item.name }} </a>
+                   </li>
+              </div>
+                {% endif %}                {% if loop.index <=30 ifnot loop.index <=20 %}
+              <div class="column-right">
+                <li>
+                  <a href="/{{item.num}}"> {{ item.name }} </a>
+                </li>
+              </div>
+                {% endif %}                {% if loop.index <=20 ifnot loop.index <=10 %}
+              <div class="column-center">
+                <li>
+                  <a href="/{{item.num}}"> {{ item.name }} </a>
+                </li>
+              </div>
+                {% endif %}
+            {% endfor %}            <a href="/storage" class="button"> submit </a>
             <a href="/stages" class="button"> I need help with the new normal </a>          </ul>
         </div>
     </div>
