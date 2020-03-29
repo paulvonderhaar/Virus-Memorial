@@ -55,7 +55,7 @@ def upload_file(file_name, file_id):
 
 @app.route('/')
 def entry_point():
-    return render_template('list.html')
+    return render_template('memorial_list.html')
 
 @app.route('/<num>')
 def display_pic(num):
