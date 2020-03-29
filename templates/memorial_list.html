@@ -14,27 +14,31 @@
         <div>
           <h3 class="im">In Memoriam</h3>
           <ul class="im">
+          <div class="column-left">
+
           {% for item in contents[0:10] %}
-               <div class="column-left">
                    <li>
                      <a href="/{{item.num}}"> {{ item.name }} </a>
                    </li>
+​           {% endfor %}
               </div>
-​           {% endfor %}            {% for item in contents[11:20] %}
-              <div class="column-right">
+           <div class="column-right">
+
+            {% for item in contents[11:20] %}
                 <li>
                   <a href="/{{item.num}}"> {{ item.name }} </a>
                 </li>
-              </div>
             {% endfor %}
-​           
+​            </div>
+            <div class="column-center">
+
             {% for item in contents[21:30] %}
-              <div class="column-center">
                 <li>
                   <a href="/{{item.num}}"> {{ item.name }} </a>
                 </li>
-              </div>
             {% endfor %}
+          </div>
+
             <a href="/storage" class="button"> submit </a>
             <a href="/stages" class="button"> I need help with the new normal </a>          </ul>
         </div>
