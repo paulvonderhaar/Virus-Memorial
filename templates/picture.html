@@ -1,3 +1,8 @@
 
-<img src=" https://memorialphotos.s3.amazonaws.com/{{contents}}.jpg "></img>
+{% for item in contents %}
+console.log(contents)
 
+
+<img src=" https://memorialphotos.s3.amazonaws.com/{{item}}.jpg "></img>
+
+{% endfor %}
