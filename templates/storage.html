@@ -2,23 +2,22 @@
 <html lang="en">
 <meta charset="utf-8"/>
 <head>
-<html>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Cinzel|Nunito+Sans&display=swap" rel="stylesheet"/>
     <title>Upload to the Memorial Wall</title>
-  </head>
+</head>
   <body>
-    <div class="content">
-        <h3>S3 demo</h3>
-        <p>The file you upload here will be uploaded to S3</p>
-        <div>
+    <div class="docs-section" id="forms">
+        <h3 class="docs-header">Add a new name</h3>
+        <p>The image you add here will be displayed for all to see</p>
+        <div class="docs-example docs-example-forms">
           <h3>Upload your file here:</h3>
           <form method="POST" action="/upload" enctype=multipart/form-data>
             <input type=file name=file>
             <input type=text name=Name>
             <input type=submit value=Upload>
           </form>
-        </div>
+            </div>
         <div>
           <h3>These are your uploaded files:</h3>
           <p>Click on the filename to download it.</p>
