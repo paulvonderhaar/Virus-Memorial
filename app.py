@@ -34,7 +34,7 @@ def list_names():
     return(content)
 
 
-def list_name(num):
+def list_name(number):
     connection= psycopg2.connect(
     host = 'memorial.ccrcqb4iv5ys.us-east-1.rds.amazonaws.com',
     port = 5432,
@@ -47,13 +47,13 @@ def list_name(num):
     content=[]
     a=cursor.execute("Select * from memorial")
     b=cursor.fetchall()
-    
     for i in range(len(b)): 
         temp=individual(b[i][0],b[i][1])
-        if(temp.num==num):
-            value=temp
+        content.append(temp)
     connection.commit()
-    return(value)
+    for i in content:
+        if(content[i].num==number)
+        return(content[i])
 
 
 
