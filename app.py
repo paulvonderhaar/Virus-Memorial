@@ -52,8 +52,8 @@ def list_name(number):
         content.append(temp)
     connection.commit()
     for i in content:
-        if(content[i].num==number)
-        return(content[i])
+        if(content[i].num==number):
+            return(content[i])
 
 
 
